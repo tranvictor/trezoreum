@@ -26,7 +26,7 @@ type Bridge interface {
 
 	UnlockByPin(pin string) (state TrezorState, err error)
 
-	UnlockByPassphrase(passphrase string) error
+	UnlockByPassphrase(passphrase string) (state TrezorState, err error)
 
 	Derive(path accounts.DerivationPath) (common.Address, error)
 
