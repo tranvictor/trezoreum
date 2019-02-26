@@ -11,11 +11,13 @@ func main() {
 	trezor, err := trezoreum.NewTrezoreum()
 	if err != nil {
 		fmt.Printf("Init trezor failed: %s\n", err)
+		return
 	}
 
 	info, state, err := trezor.Init()
 	if err != nil {
 		fmt.Printf("Init connection to trezor failed: %s\n", err)
+		return
 	}
 	fmt.Printf("Firmware version: %d.%d.%d\n", *info.MajorVersion, *info.MinorVersion, *info.PatchVersion)
 	for state != trezoreum.Ready {

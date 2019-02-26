@@ -154,7 +154,7 @@ func (self *Trezoreum) Derive(path accounts.DerivationPath) (common.Address, err
 	}
 	// we have to use XXX_unrecognized here because the proto file we are using
 	// is different to the one that was used in firmware 1.7.3
-	return common.BytesToAddress(address.XXX_unrecognized[2:]), nil
+	return common.BytesToAddress(address.GetAddress()), nil
 }
 
 func (self *Trezoreum) Sign(path accounts.DerivationPath, tx *types.Transaction, chainID *big.Int) (common.Address, *types.Transaction, error) {
@@ -171,8 +171,7 @@ func (self *Trezoreum) Sign(path accounts.DerivationPath, tx *types.Transaction,
 		DataLength: &length,
 	}
 	if to := tx.To(); to != nil {
-		toHex := to.Hex()
-		request.To = &toHex // Non contract deploy, set recipient explicitly
+		request.To = (*to)[:] // Non contract deploy, set recipient explicitly
 	}
 	if length > 1024 { // Send the data chunked if that was requested
 		request.DataInitialChunk, data = data[:1024], data[1024:]
