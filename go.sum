@@ -17,6 +17,8 @@ github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+W
 github.com/onsi/gomega v1.4.3/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
 github.com/syndtr/goleveldb v1.0.0 h1:fBdIW9lB4Iz0n9khmH8w27SJ3QEJ7+IgjPEwGSZiFdE=
 github.com/syndtr/goleveldb v1.0.0/go.mod h1:ZVVdQEZoIme9iO1Ch2Jdy24qqXrMMOU6lpPAyBWyWuQ=
+github.com/trezor/trezord v1.2.1 h1:EVAsC/HzBxlKwQROWk5MjEtUDykmsGoRJVnFV0s4I2E=
+github.com/trezor/trezord v1.2.1/go.mod h1:DTzmxqbdyC2g8UVtav8OB4Pby3zNVOuaPTJkTGe8lxI=
 github.com/trezor/trezord-go v2.0.25+incompatible h1:uZ9q1r8nYsJMefpSzesg4aSAnZwPIDp5TB+/ZuAvEEM=
 github.com/trezor/trezord-go v2.0.25+incompatible/go.mod h1:zoHzGaMdFU8PlDEEZsLolIkq7GeyjqB+b3rrnJLHOk4=
 golang.org/x/crypto v0.0.0-20190222235706-ffb98f73852f h1:qWFY9ZxP3tfI37wYIs/MnIAqK0vlXp1xnYEa5HxFSSY=
