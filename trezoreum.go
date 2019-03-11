@@ -68,7 +68,6 @@ func (self *Trezoreum) trezorExchange(req proto.Message, results ...proto.Messag
 	}
 	for i, res := range results {
 		if Type(res) == kind {
-			fmt.Printf("reply: %v\n", reply)
 			return i, proto.Unmarshal(reply[6:], res)
 		}
 	}
