@@ -24,13 +24,13 @@ type Trezoreum struct {
 }
 
 func NewTrezoreum() (*Trezoreum, error) {
-	longMemoryWriter := memorywriter.New(90000, 200, true, false)
+	longMemoryWriter := memorywriter.New(90000, 200, true, nil)
 	bus, err := initUsb(longMemoryWriter)
 	if err != nil {
 		return nil, err
 	}
 	b := usb.Init(bus...)
-	c := core.New(b, longMemoryWriter, allowCancel())
+	c := core.New(b, longMemoryWriter, allowCancel(), true)
 	return &Trezoreum{
 		core: c,
 	}, nil
@@ -46,7 +46,7 @@ func (self *Trezoreum) trezorExchange(req proto.Message, results ...proto.Messag
 		return 0, err
 	}
 
-	reply, err := self.core.Call(data, self.session, core.CallModeReadWrite, false, make(chan bool))
+	reply, err := self.core.Call(data, self.session, core.CallModeReadWrite, false, make(chan struct{}))
 	if err != nil {
 		return 0, err
 	}
