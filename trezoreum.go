@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"math/big"
+	"sync"
 
 	"github.com/ethereum/go-ethereum/accounts"
 	"github.com/ethereum/go-ethereum/common"
@@ -21,6 +22,7 @@ import (
 type Trezoreum struct {
 	session string
 	core    *core.Core
+	devmu   sync.Mutex
 }
 
 func NewTrezoreum() (*Trezoreum, error) {
@@ -32,8 +34,31 @@ func NewTrezoreum() (*Trezoreum, error) {
 	b := usb.Init(bus...)
 	c := core.New(b, longMemoryWriter, allowCancel(), true)
 	return &Trezoreum{
-		core: c,
+		core:  c,
+		devmu: sync.Mutex{},
 	}, nil
+}
+
+func (self *Trezoreum) Unlock() error {
+	self.devmu.Lock()
+	defer self.devmu.Unlock()
+	info, state, err := self.Init()
+	if err != nil {
+		return err
+	}
+	fmt.Printf("Firmware version: %d.%d.%d\n", *info.MajorVersion, *info.MinorVersion, *info.PatchVersion)
+	for state != Ready {
+		if state == WaitingForPin {
+			pin := PromptPINFromStdin()
+			state, err = self.UnlockByPin(pin)
+			if err != nil {
+				fmt.Printf("Pin error: %s\n", err)
+			}
+		} else if state == WaitingForPassphrase {
+			fmt.Printf("Not support passphrase yet\n")
+		}
+	}
+	return nil
 }
 
 // trezorExchange performs a data exchange with the Trezor wallet, sending it a
