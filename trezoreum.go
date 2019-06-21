@@ -71,7 +71,7 @@ func (self *Trezoreum) trezorExchange(req proto.Message, results ...proto.Messag
 		return 0, err
 	}
 
-	reply, err := self.core.Call(data, self.session, core.CallModeReadWrite, false, make(chan struct{}))
+	reply, err := self.core.Call(data, self.session, core.CallModeReadWrite, false, context.Background())
 	if err != nil {
 		return 0, err
 	}
