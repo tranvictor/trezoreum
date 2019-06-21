@@ -1,6 +1,7 @@
 package trezoreum
 
 import (
+	"context"
 	"encoding/binary"
 	"errors"
 	"fmt"
