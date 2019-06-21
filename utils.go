@@ -43,6 +43,7 @@ func ToTrezorPackage(msg proto.Message) ([]byte, error) {
 func getPassword(prompt string) string {
 	fmt.Print(prompt)
 	bytePassword, _ := terminal.ReadPassword(int(syscall.Stdin))
+	fmt.Printf("\n")
 	return string(bytePassword)
 }
 
