@@ -3,7 +3,7 @@ module github.com/tranvictor/trezoreum
 require (
 	github.com/allegro/bigcache v1.2.0 // indirect
 	github.com/aristanetworks/goarista v0.0.0-20190219163901-728bce664cf5 // indirect
-	github.com/ethereum/go-ethereum v1.8.23
+	github.com/ethereum/go-ethereum v1.8.27
 	github.com/go-stack/stack v1.8.0 // indirect
 	github.com/golang/protobuf v1.2.0
 	github.com/gorilla/csrf v1.5.1 // indirect

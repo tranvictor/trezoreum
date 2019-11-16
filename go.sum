@@ -4,6 +4,8 @@ github.com/aristanetworks/goarista v0.0.0-20190219163901-728bce664cf5 h1:L0TwgZQ
 github.com/aristanetworks/goarista v0.0.0-20190219163901-728bce664cf5/go.mod h1:D/tb0zPVXnP7fmsLZjtdUhSsumbK/ij54UXjjVgMGxQ=
 github.com/ethereum/go-ethereum v1.8.23 h1:xVKYpRpe3cbkaWN8gsRgStsyTvz3s82PcQsbEofjhEQ=
 github.com/ethereum/go-ethereum v1.8.23/go.mod h1:PwpWDrCLZrV+tfrhqqF6kPknbISMHaJv9Ln3kPCZLwY=
+github.com/ethereum/go-ethereum v1.8.27 h1:d+gkiLaBDk5fn3Pe/xNVaMrB/ozI+AUB2IlVBp29IrY=
+github.com/ethereum/go-ethereum v1.8.27/go.mod h1:PwpWDrCLZrV+tfrhqqF6kPknbISMHaJv9Ln3kPCZLwY=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=
 github.com/go-stack/stack v1.8.0 h1:5SgMzNM5HxrEjV0ww2lTmX6E2Izsfxas4+YHWRs3Lsk=
 github.com/go-stack/stack v1.8.0/go.mod h1:v0f6uXyyMGvRgIKkXu+yp6POWl0qKG85gN/melR3HDY=
